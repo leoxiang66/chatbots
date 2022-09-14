@@ -22,9 +22,9 @@ class FinetunedBlenderbot(Chatbot):
         return response
 
 
-class DummyBot(Chatbot):
-    def __init__(self, model_checkpt):
-        super().__init__(model_checkpt)
+class DummyBot:
+    def __init__(self):
+        super().__init__()
 
     def reply(self, usr):
         return 'This is the response from a dummy chatbot'
