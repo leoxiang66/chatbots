@@ -1,9 +1,11 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from chatbots.conversation import Conversation
+import torch
 class Chatbot():
-    def __init__(self,model_checkpt,device):
+    def __init__(self,model_checkpt):
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpt)
         self.tokenizer = AutoTokenizer.from_pretrained(model_checkpt)
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.device = device
 
     def reply(self, usr):
@@ -11,9 +13,9 @@ class Chatbot():
 
 
 class FinetunedBlenderbot(Chatbot):
-    def __init__(self,device):
-        super().__init__("Adapting/dialogue_agent_nlplab2022",device)
-        self.conv = Conversation(self.model, self.tokenizer, 128, device)
+    def __init__(self):
+        super().__init__("Adapting/dialogue_agent_nlplab2022")
+        self.conv = Conversation(self.model, self.tokenizer, 128,self.device)
 
     def reply(self, usr):
         response = self.conv.add_user_input(usr)
