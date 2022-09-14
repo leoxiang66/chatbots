@@ -20,3 +20,11 @@ class FinetunedBlenderbot(Chatbot):
     def reply(self, usr):
         response = self.conv.add_user_input(usr)
         return response
+
+
+class DummyBot(Chatbot):
+    def __init__(self, model_checkpt):
+        super().__init__(model_checkpt)
+
+    def reply(self, usr):
+        return 'This is the response from a dummy chatbot'

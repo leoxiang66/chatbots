@@ -7,7 +7,7 @@ requirements = ["torch",'transformers'] # 这里填依赖包信息
 
 setup(
     name="chatbots",
-    version="0.0.2",
+    version="0.0.3",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of chatbots",
