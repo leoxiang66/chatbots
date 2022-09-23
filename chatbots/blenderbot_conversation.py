@@ -1,6 +1,4 @@
 import torch
-
-
 class Conversation(object):
     def __init__(self, model, tokenizer, model_max_length, device):
         self.model = model

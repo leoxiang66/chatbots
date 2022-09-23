@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["torch",'transformers'] # 这里填依赖包信息
+requirements = ["torch",'transformers','py2neo'] # 这里填依赖包信息
 
 setup(
     name="chatbots",
-    version="0.0.4",
+    version="0.2.0",
     author="Tao Xiang",
     author_email="tao.xiang@tum.de",
     description="A package of chatbots",
